@@ -1,5 +1,5 @@
 # CapriciousFramework
-Ce framework fournit un Service CRUD générique capricieux qui n'est utilisable qu'en étant poli.
+Ce framework fournit un Service CRUD générique capricieux pour Spring Boot qui n'est utilisable qu'en étant poli.
 
 ## Comment ça marche
 C'est un service très susceptible qui est très attaché à la politesse. Il peut être injecté comme n'importe quel @Service. Cependant, pour accéder à ses méthodes CRUD, il faut d'abord formuler sa requête poliment grace à la méthode **couldyou()**. Cette méthode retourne une classe interne contenant l'ensemble des méthodes CRUD. Attention cependant, ces méthodes ne retournent pas directement l'objet désiré, mais un wrapper de l'objet. Il faudra alors utiliser la méthode **please()** pour effectivement obtenir l'objet, du moins si le service est de bonne humeur. Si vous sollicitez trop le service, il peut refuser de vous retourner l'objet, c'est pourquoi il est important de toujours remercier le service avec la méthode **thankyou()**. Vous avez également la possibiliter de le complimenter si le service a accumulé trop ressentiment.
