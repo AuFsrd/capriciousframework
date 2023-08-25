@@ -21,8 +21,9 @@ public class CapriciousServiceImpl<T extends BaseEntity> implements CapriciousSe
     }
 
     @Override
-    public void compliment(String compliment) {
+    public String compliment(String compliment) {
         this.callCounter = 0;
+        return "01101101 01100101 01110010 01100011 01101001";
     }
 
     @Override
