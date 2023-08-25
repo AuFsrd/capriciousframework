@@ -4,6 +4,14 @@ import com.capriciousframework.models.BaseEntity;
 
 import java.util.List;
 
+
+/**
+ * Le service capricieux fournit des méthodes CRUD basiques. Pour l'utiliser, il suffit de faire hériter une classe
+ * de ce service en lui passant le type de l'entité souhaitée.
+ * Attention, il est capricieux. Si vous lui en demandez trop, il risque de ne pas se comporter comme prévu.
+ * Demandez poliment et penser à dire merci !
+ * @param <T>
+ */
 public interface CapriciousService<T extends BaseEntity> {
 
     /**
@@ -13,18 +21,36 @@ public interface CapriciousService<T extends BaseEntity> {
     public Boolean isInTheMood();
 
     /**
-     * Vous devez complimenter le service régulièrement afin qu'il oublie tout et
-     * apaise ses frustrations.
+     * Le service adore les compliments. Vous pouvez complimenter le service régulièrement afin qu'il oublie tout
+     * et apaise ses frustrations.
      * @param compliment Ecrivez un compliment.
      */
     public void compliment(String compliment);
 
-    public Maybe<T> getById(Integer id);
+    /**
+     * Il est conseillé de remercier le service après chaque utilisation.
+     */
+    public void thankyou();
 
-    public Maybe<List<T>> getAll();
+    /**
+     * Le service déteste les ordres. Pour accéder à ses méthodes, il faut d'abord
+     * le lui demander poliment.
+     * @return une classe interne contenant les méthodes
+     */
+    public MethodProvider<T> couldyou();
 
-    public Maybe<T> save(T t);
+    /**
+     * Cette classe interne fournit toutes les méthodes CRUD du service. Ces méthodes ne sont accessibles en
+     * demandant poliment. Attention, le service se souviendra de chaque demande que vous lui faites, pensez
+     * donc à le remercier et le complimenter régulièrement.
+     */
+    interface MethodProvider<T extends BaseEntity> {
+        public Maybe<T> getById(Integer id);
 
-    public void delete(T t);
+        public Maybe<List<T>> getAll();
 
+        public Maybe<T> save(T t);
+
+        public void delete(T t);
+    }
 }

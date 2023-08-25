@@ -19,9 +19,15 @@ public class PoliteframeworkApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        personService.save(new Person("Robert")).please();
-        personService.compliment("Tu es très beau");
-        personService.getAll().please().forEach(System.out::println);
+        personService.couldyou().save(new Person("Robert")).please();
+        personService.thankyou();
+        personService.couldyou().save(new Person("Bobby")).please();
+        personService.thankyou();
+        personService.couldyou().save(new Person("Jojo")).please();
+        personService.thankyou();
+        personService.couldyou().delete(personService.couldyou().getById(1).please());
+        personService.couldyou().getAll().please().forEach(System.out::println);
+        personService.compliment("Tu fais du très bon travail");
 
     }
 }
