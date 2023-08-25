@@ -18,26 +18,26 @@ public interface CapriciousService<T extends BaseEntity> {
      * Permet de savoir si le service est d'humeur à retourner des objets.
      * @return false s'il est trop frustré pour coopérer. Pensez à le complimenter !
      */
-    public Boolean isInTheMood();
+    Boolean isInTheMood();
 
     /**
      * Le service adore les compliments. Vous pouvez complimenter le service régulièrement afin qu'il oublie tout
      * et apaise ses frustrations.
      * @param compliment Ecrivez un compliment.
      */
-    public String compliment(String compliment);
+    String compliment(String compliment);
 
     /**
      * Il est conseillé de remercier le service après chaque utilisation.
      */
-    public void thankyou();
+    void thankyou();
 
     /**
      * Le service déteste les ordres. Pour accéder à ses méthodes, il faut d'abord
      * le lui demander poliment.
      * @return une classe interne contenant les méthodes
      */
-    public MethodProvider<T> couldyou();
+    MethodProvider<T> couldyou();
 
     /**
      * Cette classe interne fournit toutes les méthodes CRUD du service. Ces méthodes ne sont accessibles qu'en
@@ -45,9 +45,9 @@ public interface CapriciousService<T extends BaseEntity> {
      * vous lui faites, pensez donc à le remercier et le complimenter régulièrement.
      */
     interface MethodProvider<T extends BaseEntity> {
-        public Maybe<T> getById(Integer id);
-        public Maybe<List<T>> getAll();
-        public Maybe<T> save(T t);
-        public void delete(T t);
+        Maybe<T> getById(Integer id);
+        Maybe<List<T>> getAll();
+        Maybe<T> save(T t);
+        void delete(T t);
     }
 }

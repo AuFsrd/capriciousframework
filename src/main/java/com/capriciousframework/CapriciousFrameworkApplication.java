@@ -18,7 +18,7 @@ public class CapriciousFrameworkApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 
         personService.couldyou().save(new Person("Robert")).please();
         personService.thankyou();

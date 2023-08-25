@@ -1,7 +1,7 @@
 package com.capriciousframework.services;
 
 import com.capriciousframework.models.BaseEntity;
-import com.capriciousframework.repositories.GenericRepository;;
+import com.capriciousframework.repositories.GenericRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -51,7 +51,7 @@ public class CapriciousServiceImpl<T extends BaseEntity> implements CapriciousSe
         @Override
         public Maybe<T> getById(Integer id) {
             remember();
-            return new Maybe<T>(service, service.repo.findById(id).orElseThrow());
+            return new Maybe<>(service, service.repo.findById(id).orElseThrow());
         }
 
         @Override
@@ -73,6 +73,5 @@ public class CapriciousServiceImpl<T extends BaseEntity> implements CapriciousSe
         }
 
     }
-
 
 }
