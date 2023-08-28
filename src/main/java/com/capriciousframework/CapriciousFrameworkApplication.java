@@ -20,6 +20,8 @@ public class CapriciousFrameworkApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
+        personService.hello();
+
         personService.couldyou().save(new Person("Robert")).please();
         personService.thankyou();
 

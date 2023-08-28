@@ -21,6 +21,12 @@ public interface CapriciousService<T extends BaseEntity> {
     Boolean isInTheMood();
 
     /**
+     * Avant de demander quoi que ce soit au service, pensez à lui dire bonjour. Faute de quoi,
+     * il ne se montrera pas coopératif.
+     */
+    String hello();
+
+    /**
      * Le service adore les compliments. Vous pouvez complimenter le service régulièrement afin qu'il oublie tout
      * et apaise ses frustrations.
      * @param compliment Ecrivez un compliment.
@@ -35,6 +41,7 @@ public interface CapriciousService<T extends BaseEntity> {
     /**
      * Le service déteste les ordres. Pour accéder à ses méthodes, il faut d'abord
      * le lui demander poliment.
+     * Pensez d'abord à lui dire bonjour.
      * @return une classe interne contenant les méthodes
      */
     MethodProvider<T> couldyou();
