@@ -2,6 +2,7 @@
 Ce framework fournit un Service CRUD générique capricieux pour Java Spring qui n'est utilisable qu'en étant poli.
 
 ## Comment ça marche
+
 C'est un service très susceptible qui est très attaché à la politesse. Il peut être injecté comme n'importe quel @Service.  
 Avant la première utilisation il convient de dire bonjour au service en utilisant la méthode
 appropriée en fonction de l'heure du jour : **goodMorning()**, **goodAfternoon()** ou **goodEvening()**.  
