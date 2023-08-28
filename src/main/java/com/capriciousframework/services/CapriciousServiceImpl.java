@@ -10,6 +10,7 @@ import java.util.Random;
 public class CapriciousServiceImpl<T extends BaseEntity> implements CapriciousService<T> {
 
     private Integer callCounter = 0;
+    private Boolean saidHello = false;
 
     @Autowired
     protected GenericRepository<T> repo;
@@ -18,6 +19,12 @@ public class CapriciousServiceImpl<T extends BaseEntity> implements CapriciousSe
     public Boolean isInTheMood() {
         Random r = new Random();
         return (this.callCounter < r.nextInt(3, 9));
+    }
+
+    @Override
+    public String hello() {
+        this.saidHello = true;
+        return "01101000 01100101 01101100 01101100 01101111";
     }
 
     @Override
@@ -33,7 +40,10 @@ public class CapriciousServiceImpl<T extends BaseEntity> implements CapriciousSe
 
     @Override
     public MethodProvider<T> couldyou() {
-        return new MethodProviderImpl();
+        if (this.saidHello) {
+            return new MethodProviderImpl();
+        }
+        return null;
     }
 
     private class MethodProviderImpl implements MethodProvider<T> {
