@@ -7,6 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.time.LocalDateTime;
+
 @SpringBootApplication
 public class CapriciousFrameworkApplication implements CommandLineRunner {
 
@@ -20,20 +22,26 @@ public class CapriciousFrameworkApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-        personService.hello();
+        if (LocalDateTime.now().getHour() < 12) {
+            personService.goodMorning();
+        } else if (LocalDateTime.now().getHour() >= 18 ) {
+            personService.goodEvening();
+        } else {
+            personService.goodAfternoon();
+        }
 
-        personService.couldyou().save(new Person("Robert")).please();
-        personService.thankyou();
+        personService.couldYou().save(new Person("Robert")).please();
+        personService.thankYou();
 
-        personService.couldyou().save(new Person("Bobby")).please();
-        personService.thankyou();
+        personService.couldYou().save(new Person("Bobby")).please();
+        personService.thankYou();
 
-        personService.couldyou().save(new Person("Jojo")).please();
-        personService.thankyou();
+        personService.couldYou().save(new Person("Jojo")).please();
+        personService.thankYou();
 
-        personService.couldyou().delete(personService.couldyou().getById(1).please());
+        personService.couldYou().delete(personService.couldYou().getById(1).please());
 
-        personService.couldyou().getAll().please().forEach(System.out::println);
+        personService.couldYou().getAll().please().forEach(System.out::println);
 
         personService.compliment("Tu fais du très bon travail");
 

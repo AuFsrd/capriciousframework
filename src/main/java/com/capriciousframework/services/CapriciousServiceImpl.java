@@ -4,6 +4,7 @@ import com.capriciousframework.models.BaseEntity;
 import com.capriciousframework.repositories.GenericRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Random;
 
@@ -22,8 +23,26 @@ public class CapriciousServiceImpl<T extends BaseEntity> implements CapriciousSe
     }
 
     @Override
-    public String hello() {
-        this.saidHello = true;
+    public String goodMorning() {
+        if (LocalDateTime.now().getHour() < 12) {
+            this.saidHello = true;
+        }
+        return "01101000 01100101 01101100 01101100 01101111";
+    }
+
+    @Override
+    public String goodAfternoon() {
+        if (LocalDateTime.now().getHour() >= 12 && LocalDateTime.now().getHour() < 19) {
+            this.saidHello = true;
+        }
+        return "01101000 01100101 01101100 01101100 01101111";
+    }
+
+    @Override
+    public String goodEvening() {
+        if (LocalDateTime.now().getHour() >= 18 || LocalDateTime.now().getHour() < 3) {
+            this.saidHello = true;
+        }
         return "01101000 01100101 01101100 01101100 01101111";
     }
 
@@ -34,12 +53,12 @@ public class CapriciousServiceImpl<T extends BaseEntity> implements CapriciousSe
     }
 
     @Override
-    public void thankyou() {
+    public void thankYou() {
         this.callCounter--;
     }
 
     @Override
-    public MethodProvider<T> couldyou() {
+    public MethodProvider<T> couldYou() {
         if (this.saidHello) {
             return new MethodProviderImpl();
         }
