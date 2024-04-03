@@ -15,7 +15,7 @@ Si vous sollicitez trop le service, il peut refuser de vous retourner l'objet, c
 toujours le remercier avec la méthode **thankYou()**.  
 Vous avez également la possibilité de le complimenter si le service a accumulé trop de ressentiment.
 
-Une documentation plus fournie avec consultable dans l'interface CapriciousService.
+Une documentation plus fournie est consultable dans l'interface CapriciousService.
 
 ## Comment l'utiliser
 Vous pouvez utiliser les méthodes du service sur n'importe quelle entité. Pour cela il suffit de :
